@@ -13,7 +13,7 @@ TextFilePublisher::TextFilePublisher(const std::string& path_to_events_text_file
 {
   CHECK_EQ(num_cameras, 1) << "TextFilePublisher implemented for one camera only";
   //events_text_file_.open(path_to_events_text_file);
-  pBinFile_ = fopen(path_to_events_text_file, "wb");
+  pBinFile_ = fopen(path_to_events_text_file.c_str(), "wb");
 }
 
 TextFilePublisher::~TextFilePublisher()
@@ -46,10 +46,10 @@ void TextFilePublisher::eventsCallback(const EventsVector& events)
   Time t;
   bool pol;
         */
-        fwrite(e.t, sizeof(Time), 1, pBinFile_);
-        fwrite(e.x, sizeof(uint16_t), 1, pBinFile_);
-        fwrite(e.y, sizeof(uint16_t), 1, pBinFile_);
-        fwrite(e.pol, sizeof(bool), 1, pBinFile_);
+        fwrite(&e.t, sizeof(Time), 1, pBinFile_);
+        fwrite(&e.x, sizeof(uint16_t), 1, pBinFile_);
+        fwrite(&e.y, sizeof(uint16_t), 1, pBinFile_);
+        fwrite(&e.pol, sizeof(bool), 1, pBinFile_);
         //events_text_file_ << e.t << " " << e.x << " " << e.y << " " << e.pol << std::endl;
     }
 }

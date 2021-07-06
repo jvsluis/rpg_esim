@@ -16,5 +16,13 @@ rosdep update
 
 sudo apt-get install autoconf -y
 
+sudo mv install-2.sh ~/sim_ws/
+sudo mv install-3.sh ~/sim_ws/src/
+
+sudo chmod +x ~/sim_ws/install-2.sh
+sudo chmod +x ~/sim_ws/src/install-3.sh
+
+sudo bash ~/sim_ws/install-2.sh
+
 # execute this file anywhere...
 
