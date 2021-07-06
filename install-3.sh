@@ -13,9 +13,11 @@ touch ze_oss/imp_3rdparty_cuda_toolkit/CATKIN_IGNORE \
       ze_oss/ze_imu/CATKIN_IGNORE \
       ze_oss/ze_trajectory_analysis/CATKIN_IGNORE
 
-catkin build esim_ros
+sudo catkin build esim_ros
 
-echo "source ~/sim_ws/devel/setup.bash" >> ~/setupeventsim.sh
-chmod +x ~/setupeventsim.sh
+sudo echo "source ~/sim_ws/devel/setup.bash" >> ~/setupeventsim.sh
+sudo chmod +x ~/setupeventsim.sh
+
+sudo echo "alias ssim='source ~/setupeventsim.sh'" >> ~/.bashrc
 
 # execute this file from the src directory!
